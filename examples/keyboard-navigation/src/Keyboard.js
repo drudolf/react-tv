@@ -22,10 +22,6 @@ class Keyboard extends React.Component {
       </div>
     )
 
-    if (!Platform('webos')) {
-      component = <div>{component}</div>
-    }
-
     return component
   }
 }
