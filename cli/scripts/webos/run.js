@@ -9,7 +9,7 @@ function defaultCLIEnv() {
 }
 
 function isReactTVWebOSProject(root) {
-  const appinfo = path.resolve(root, 'webos/appinfo.json');
+  const appinfo = path.resolve(root, 'react-tv/webos/appinfo.json');
   if (fs.existsSync(appinfo)) {
     return true;
   }
