@@ -61,9 +61,7 @@ function runWebOS(root, entry) {
     console.log(chalk.yellow(` succefull pack from ${root}`));
 
     console.log(chalk.dim('Installing...'));
-    const config = JSON.parse(
-      execSync(`cat ${root}/appinfo.json`).toString()
-    );
+    const config = JSON.parse(execSync(`cat ${root}/appinfo.json`).toString());
 
     const latestIPK = config.id + '_' + config.version + '_all.ipk';
     console.log(chalk.blue(` installing ${latestIPK} as IPK`));
@@ -74,6 +72,6 @@ function runWebOS(root, entry) {
     execSync(`cd ${root} && ares-launch ${config.id}`);
     console.log(chalk.yellow(` launched`));
   }, 500);
-};
+}
 
 module.exports = runWebOS;

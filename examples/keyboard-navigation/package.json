@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --progress --colors"
+    "start": "react-tv run-webos",
+    "start-dev": "webpack-dev-server --progress --colors"
   },
   "dependencies": {
     "react": "^16.0.0",
