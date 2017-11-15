@@ -33,7 +33,10 @@ function runWebOS(root) {
   const packageJson = require(path.resolve(root, 'package.json'));
   const ReactTVConfig = packageJson['react-tv'];
   if (!ReactTVConfig) {
-    return console.log(chalk.dim('[react-tv]'), 'You should set react-tv properties on package.json');
+    return console.log(
+      chalk.dim('[react-tv]'),
+      'You should set react-tv properties on package.json'
+    );
   }
 
   if (!ReactTVConfig.files || !ReactTVConfig.files.length) {
@@ -45,13 +48,13 @@ function runWebOS(root) {
     execSync(`cp ${root}/react-tv/icon.png ${webosPath}/icon.png`);
     execSync(`cp ${root}/react-tv/icon-large.png ${webosPath}/icon-large.png`);
 
-    ReactTVConfig.files.forEach((file) => {
+    ReactTVConfig.files.forEach(file => {
       const filePath = path.resolve(root, file);
       execSync(`cp ${filePath} ${webosPath}`);
-    })
-  } catch(e) {
+    });
+  } catch (e) {
     return console.log('FAIL TO MOUNT', e.toString());
-  };
+  }
 
   console.log('');
   console.log(chalk.dim('Up Emulator...'));
@@ -84,7 +87,9 @@ function runWebOS(root) {
     console.log(chalk.yellow(` succefull pack from ${root}`));
 
     console.log(chalk.dim('Installing...'));
-    const config = JSON.parse(execSync(`cat ${webosPath}/appinfo.json`).toString());
+    const config = JSON.parse(
+      execSync(`cat ${webosPath}/appinfo.json`).toString()
+    );
 
     const latestIPK = config.id + '_' + config.version + '_all.ipk';
     console.log(chalk.blue(` installing ${latestIPK} as IPK`));
